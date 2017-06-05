@@ -17,17 +17,17 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
     public static final String username = "SA";
     public static final String password = "";
-    public static final String url = "jdbc:hsqldb:hsql://127.0.0.1:9001/test-db";
+    public static final String url = "jdbc:hsqldb:hsql://127.0.0.1:9026/test-db";
     
   	public static void main(String[] args) throws InterruptedException, SQLException {
-		MyHsqlServer dbServer = new MyHsqlServer(9020, "test-db", "mem:test-db");
+		MyHsqlServer dbServer = new MyHsqlServer(9026, "test-db", "mem:test-db");
 		dbServer.start();
 		log.info("Database started");
 		
-		Connection con = DriverManager.getConnection(url,username,password);
+		/*Connection con = DriverManager.getConnection(url,username,password);
 		
-		Statement stmt = con.createStatement();
-		
+		Statement stmt = con.createStatement();*/
+		/*
 		//Tworzenie tabeli i jej zapelnianie milionem rekordow
 	    /*ResultSet rs = stmt.executeQuery("CREATE TABLE UserData(id int, firstName varchar(25), lastName varchar(25))");
 	    
@@ -35,7 +35,7 @@ public class Main {
 	    	stmt.executeQuery("INSERT INTO UserData VALUES ("+i+",'Damian"+i+"','Biedrzycki"+i+"')");
 	    }  */		
 	
-		stmt.executeQuery("DROP INDEX test");
+		/*stmt.executeQuery("DROP INDEX test");
 		
 		Date startDate = new Date();
 		ResultSet rs1 = stmt.executeQuery("SELECT id, firstName, lastName FROM UserData WHERE id = 950000");
@@ -66,7 +66,7 @@ public class Main {
 		rs1.close();
 		rs2.close();
 		stmt.close();
-		con.close();
+		con.close();*/
 
 		
 	}
